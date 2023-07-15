@@ -1,21 +1,22 @@
-import { FC, useState,useEffect } from 'react';
+import { FC, useState,useEffect, ReactNode } from 'react';
 
 interface ButtonProps {
-    show: boolean
+    onClick: () => void,
+    children: ReactNode
 }
 
-const Button: FC<ButtonProps> = ({show}) => {
-    const [showToggle, setShowToggle] = useState(show);
+const Button: FC<ButtonProps> = ({children, onClick}) => {
+    
 
-    function toggleShow() {
+    /* function toggleShow() {
         const newShowToggle = !showToggle;
         setShowToggle(newShowToggle)
-    }
+    } */
     
 
     return (
         <>
-            <button onClick={toggleShow}>Button</button>
+            <button onClick={onClick}>{children}</button>
         </>
     )
 }
